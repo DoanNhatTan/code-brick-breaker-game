@@ -16,6 +16,7 @@ let player = {
 }
 
 //ball
+let ballRadius = 5;
 let ballWight = 10;
 let ballHeight = 10;
 let ballVelocityX = 3;
@@ -24,6 +25,7 @@ let ballVelocityY = 2
 let ball = {
     x: boardWidth / 2,
     y: boardHeight / 2,
+    radius: ballRadius,
     width: ballWight,
     height: ballHeight,
     velocityX: ballVelocityX,
@@ -72,10 +74,12 @@ function update() {
 
     //ball
     context.fillStyle = "white";
+    context.beginPath();
+    context.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2); // Vẽ hình tròn
+    context.fill();
     ball.x += ball.velocityX;
-    console.log(ball.x)
     ball.y += ball.velocityY;
-    context.fillRect(ball.x, ball.y, ball.width, ball.height)
+   
 
     //bounce ball off walls
     if (ball.y <= 0) {
@@ -207,6 +211,7 @@ function resetGame() {
     ball = {
         x: boardWidth / 2,
         y: boardHeight / 2,
+        radius: ballRadius,
         width: ballWight,
         height: ballHeight,
         velocityX: ballVelocityX,
