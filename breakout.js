@@ -5,7 +5,7 @@ let boardHeight = 500;
 // player
 let playerWidth = 80;
 let playerHeight = 10;
-let playerVelocityX = 10
+let playerVelocityX = 40;
 
 let player = {
     x: boardWidth / 2 - playerWidth / 2,
